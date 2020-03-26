@@ -6,7 +6,7 @@ import { createStore, applyMiddleware } from 'redux';
 
 import reducers from './reducers';
 
-const middleware =  [thunk, promise];
+const middleware =  [thunk, promise()];
 
 const store = createStore(reducers,composeWithDevTools(applyMiddleware(...middleware)));
 
