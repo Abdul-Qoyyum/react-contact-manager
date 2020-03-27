@@ -2,7 +2,15 @@ export const contacts = [
     {
     name : {
         first : 'John',
-        last : 'Jackson juliet'
+        last : 'Doe'
+    },
+    phone : "555-555-5545",
+    email : "test@test.com"
+    },
+    {
+    name : {
+        first : 'Jackson',
+        last : 'juliet'
     },
     phone : "555-555-5545",
     email : "test@test.com"

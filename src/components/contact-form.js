@@ -24,6 +24,7 @@ class ContactForm extends Component{
                                 <label>Phone</label>
                                 <input placeholder='Last Name' />
                             </Form.Field>
+                            <Button type="submit">Submit</Button>
                     </Form>
                 </div>
             </div>
