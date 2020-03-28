@@ -1,11 +1,13 @@
-import { contacts } from '../contact-data';
+import { client } from './client';
 import { FETCH_CONTACTS } from '../types';
 
-export function fetchContacts(){
+const url = "/contacts";
+
+export function fetchContacts() {
     return (dispatch) => {
         dispatch({
             type: FETCH_CONTACTS,
-            payload: contacts
+            payload: client.get(url)
         });
     }
 }
