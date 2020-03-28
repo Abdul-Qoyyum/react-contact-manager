@@ -4,11 +4,10 @@ const defaultState = {
     contacts : []
    };
 
-export function contactListReducer(state = defaultState, action){
-    console.log(action.payload);
+export function contactListReducer(state = defaultState, action={}){
     switch(action.type){
         case FETCH_CONTACTS :
-            return {...state, action.payload};
+            return {...state, action.payload };
         default :
             return state;
     }

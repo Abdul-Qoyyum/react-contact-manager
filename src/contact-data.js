@@ -1,5 +1,6 @@
 export const contacts = [
     {
+        _id : 1,
     name : {
         first : 'John',
         last : 'Doe'
@@ -8,6 +9,7 @@ export const contacts = [
     email : "test@test.com"
     },
     {
+        _id : 2,
     name : {
         first : 'Jackson',
         last : 'juliet'

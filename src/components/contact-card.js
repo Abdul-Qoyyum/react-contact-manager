@@ -1,7 +1,8 @@
 import React from 'react';
 import { Button, Card, Image } from "semantic-ui-react";
 
-const contactCard = () => {
+const contactCard = (props) => {
+    let {first, last} = props.contact.name;
     return(
         <Card>
             <Card.Content>
@@ -10,8 +11,8 @@ const contactCard = () => {
                     size='mini'
                     src='/images/avatar/large/steve.jpg'
                 />
-                <Card.Header>Steve Sanders</Card.Header>
-                <Card.Meta>Friends of Elliot</Card.Meta>
+                <Card.Header>First name</Card.Header>
+                <Card.Meta>{first}</Card.Meta>
                 <Card.Description>
                     Steve wants to add you to the group <strong>best friends</strong>
                 </Card.Description>

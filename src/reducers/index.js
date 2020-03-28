@@ -2,7 +2,7 @@ import { combineReducers } from "redux";
 import { contactListReducer } from "./contact-list-reducer";
 
 const reducers = combineReducers({
-    contactListReducer
+    contactStore : contactListReducer
 });
 
 export default reducers;
