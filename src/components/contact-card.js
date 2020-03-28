@@ -1,20 +1,20 @@
 import React from 'react';
 import { Button, Card, Image } from "semantic-ui-react";
 
-const contactCard = (props) => {
-    let {first, last} = props.contact.name;
+const ContactCard = (props) => {
+    const {first, last} = props.contact.name;
     return(
         <Card>
             <Card.Content>
                 <Image
                     floated='right'
                     size='mini'
-                    src='/images/avatar/large/steve.jpg'
+                    src='/images/wireframe/square-image.png'
                 />
-                <Card.Header>First name</Card.Header>
-                <Card.Meta>{first}</Card.Meta>
+                <Card.Header>{first} {last}</Card.Header>
+                <Card.Meta>{props.contact.phone}</Card.Meta>
                 <Card.Description>
-                    Steve wants to add you to the group <strong>best friends</strong>
+                    {props.contact.email}
                 </Card.Description>
             </Card.Content>
             <Card.Content extra>
@@ -25,10 +25,10 @@ const contactCard = (props) => {
                     <Button basic color='red'>
                         Delete Contact
                     </Button>
-                </div>
+                 </div>
             </Card.Content>
         </Card>
          );
 }
 
-export default contactCard;
+export default ContactCard;

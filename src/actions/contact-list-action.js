@@ -1,6 +1,7 @@
+import { contacts } from '../contact-data';
 import { FETCH_CONTACTS } from '../types';
 
-export function contactListAction(contacts){
+export function fetchContacts(){
     return (dispatch) => {
         dispatch({
             type: FETCH_CONTACTS,
