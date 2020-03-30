@@ -34,7 +34,7 @@ render(){
                                 Submit
                             </Button>
                             <Button type="button" disabled={pristine || submitting} onClick={reset}>
-                                Clear Values
+                                Reset
                             </Button>
                         </div>
                     </Form>

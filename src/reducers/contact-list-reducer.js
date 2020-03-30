@@ -25,7 +25,7 @@ export const contactListReducer = (state = defaultState, action={}) => {
             return { ...state, loading : true }
         }
         case SAVE_CONTACT_FULFILLED : {
-            return [ ...state.contacts, action.payload ]
+            return {...state, contacts : [ ...state.contacts, action.payload ] }
         }
         case SAVE_CONTACT_REJECTED : {
             const data =  action.payload.response.data;

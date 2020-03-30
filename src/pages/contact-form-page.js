@@ -43,7 +43,7 @@ class ContactFormPage extends Component{
            <div className="ui middle aligned grid" style={formStyle}>
             <div className="row">
                 <div className="column">
-                    { this.state.redirect ? <Redirect to="/" /> : <ContactForm contact={this.props.contact} onSubmit={this.submit.bind(this)} /> }
+                    { this.state.redirect ? <Redirect to="/" /> : <ContactForm contact={this.props.contact} onSubmit={this.submit} /> }
                 </div>
             </div>
         </div>
