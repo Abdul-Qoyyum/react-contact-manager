@@ -1,16 +1,11 @@
 import React from 'react';
-import { Button, Card, Image } from "semantic-ui-react";
+import { Button, Card } from "semantic-ui-react";
 
 const ContactCard = (props) => {
     const {first, last} = props.contact.name;
     return(
         <Card>
             <Card.Content>
-                <Image
-                    floated='right'
-                    size='mini'
-                    src='/images/wireframe/square-image.png'
-                />
                 <Card.Header>{first} {last}</Card.Header>
                 <Card.Meta>{props.contact.phone}</Card.Meta>
                 <Card.Description>

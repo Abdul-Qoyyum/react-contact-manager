@@ -1,5 +1,6 @@
 import { client } from './client';
-import { FETCH_CONTACTS, SAVE_CONTACT } from '../types';
+import { FETCH_CONTACTS, SAVE_CONTACT, NEW_CONTACT
+} from '../types';
 
 const url = "/contacts";
 
@@ -12,11 +13,20 @@ export function fetchContacts() {
     }
 }
 
-export function saveContact(contact){
+
+export function newContact(){
     return dispatch => {
-       return dispatch({
-           type : SAVE_CONTACT,
-           payload : client.post(url, contact)
-        })
+        dispatch({
+            type: NEW_CONTACT
+        });
+    }
+}
+
+export function saveContact(contact) {
+    return dispatch => {
+            return dispatch({
+                type: SAVE_CONTACT,
+                payload: client.post(url, contact)
+            })
     }
 }

@@ -1,5 +1,6 @@
 import  {
   FETCH_CONTACTS_FULFILLED,
+    NEW_CONTACT,
   SAVE_CONTACT_PENDING,
   SAVE_CONTACT_FULFILLED,
   SAVE_CONTACT_REJECTED,
@@ -16,6 +17,9 @@ export const contactListReducer = (state = defaultState, action={}) => {
     switch (action.type) {
         case FETCH_CONTACTS_FULFILLED : {
             return { ...state, contacts : action.payload.data.data || action.payload.data }
+        }
+        case NEW_CONTACT : {
+            return { ...state, contact : { name : {}} }
         }
         case SAVE_CONTACT_PENDING : {
             return { ...state, loading : true }
