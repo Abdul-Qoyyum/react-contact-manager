@@ -14,9 +14,9 @@ export function fetchContacts() {
 
 export function saveContact(contact){
     return dispatch => {
-        dispatch({
+       return dispatch({
            type : SAVE_CONTACT,
-           payload : client.post(contact)
-        });
+           payload : client.post(url, contact)
+        })
     }
 }

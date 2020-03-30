@@ -13,7 +13,8 @@ module.exports = function (app) {
         required: [true, 'First name is required']
       },
       last : {
-        type : String
+        type : String,
+        required : [true, 'Last name is required']
       }
     },
     phone: {

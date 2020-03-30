@@ -4,7 +4,7 @@ import { Container, Card } from "semantic-ui-react";
 
 import { fetchContacts } from "../actions";
 import ContactCard from "../components/contact-card";
-import {Link} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 
 class ContactListPage extends Component {
 
@@ -16,8 +16,8 @@ class ContactListPage extends Component {
       return(
      <div>
           <div className="ui two item menu">
-              <Link exact to="/addcontact" className="item">Add Contact</Link>
-              <Link exact to="/" className="active item">List Contacts</Link>
+              <NavLink exact to="/contact/new" className="item">Add Contact</NavLink>
+              <NavLink exact to="/" className="active item">List Contacts</NavLink>
           </div>
 
           <Container>

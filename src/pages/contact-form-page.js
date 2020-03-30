@@ -1,24 +1,40 @@
 import React, { Component }  from 'react';
 import ContactForm from "../components/contact-form";
-import {Link} from "react-router-dom";
+import { NavLink, Redirect } from "react-router-dom";
+import { SubmissionError } from "redux-form";
+import { connect } from 'react-redux';
+
+import { saveContact } from "../actions";
 
 class ContactFormPage extends Component{
-  submit = values => {
-   console.log(values);
+  constructor(props){
+      super(props);
+      this.state = { redirect : false };
   }
+
+  submit = values => {
+   this.props.saveContact(values).then(response => {
+       this.setState({redirect : true });
+   }).catch(error => {
+       console.log(this.props.errors);
+       throw new SubmissionError(this.props.errors);
+   })
+
+  }
+
 
   render(){
    return(
        <div>
            <div className="ui two item menu">
-               <Link exact to="/addcontact" className="active item">Add Contact</Link>
-               <Link exact to="/" className="item">List Contacts</Link>
+               <NavLink exact to="/contact/new" className="active item">Add Contact</NavLink>
+               <NavLink exact to="/" className="item">List Contacts</NavLink>
            </div>
 
            <div className="ui middle aligned grid" style={formStyle}>
             <div className="row">
                 <div className="column">
-                    <ContactForm onSubmit={this.submit.bind(this)} />
+                    { this.state.redirect ? <Redirect to="/" /> : <ContactForm onSubmit={this.submit.bind(this)} /> }
                 </div>
             </div>
         </div>
@@ -31,4 +47,10 @@ const formStyle = {
      height : '90vh'
 }
 
-export default ContactFormPage;
+function mapStateToProps(state){
+    return {
+        errors: state.contactStore.errors
+    }
+}
+
+export default connect(mapStateToProps, { saveContact })(ContactFormPage);
