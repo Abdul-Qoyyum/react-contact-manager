@@ -58,7 +58,7 @@ const formStyle = {
 
 function mapStateToProps(state){
     return {
-        contact : state.contactStore.contacts,
+        contact : state.contactStore.contact,
         errors: state.contactStore.errors
     }
 }

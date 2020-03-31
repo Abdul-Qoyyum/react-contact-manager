@@ -4,7 +4,7 @@ import { Container, Card } from "semantic-ui-react";
 
 import { fetchContacts } from "../actions";
 import ContactCard from "../components/contact-card";
-import {NavLink} from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 class ContactListPage extends Component {
 

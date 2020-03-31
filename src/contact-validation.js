@@ -1,7 +1,4 @@
-import React from 'react'
-import { Field, reduxForm } from 'redux-form'
-
-const validate = values => {
+export const validate = values => {
     const errors = {}
     if (!values.username) {
         errors.username = 'Required'
@@ -23,7 +20,7 @@ const validate = values => {
     return errors
 }
 
-const warn = values => {
+export const warn = values => {
     const warnings = {}
     if (values.age < 19) {
         warnings.age = 'Hmm, you seem a bit young...'
@@ -32,33 +29,3 @@ const warn = values => {
 }
 
 
-
-const SyncValidationForm = props => {
-    const { handleSubmit, pristine, reset, submitting } = props
-    return (
-        <form onSubmit={handleSubmit}>
-            <Field
-                name="username"
-                type="text"
-                component={renderField}
-                label="Username"
-            />
-            <Field name="email" type="email" component={renderField} label="Email" />
-            <Field name="age" type="number" component={renderField} label="Age" />
-            <div>
-                <button type="submit" disabled={submitting}>
-                    Submit
-                </button>
-                <button type="button" disabled={pristine || submitting} onClick={reset}>
-                    Clear Values
-                </button>
-            </div>
-        </form>
-    )
-}
-
-export default reduxForm({
-    form: 'syncValidation', // a unique identifier for this form
-    validate, // <--- validation function given to redux-form
-    warn // <--- warning function given to redux-form
-})(SyncValidationForm)
