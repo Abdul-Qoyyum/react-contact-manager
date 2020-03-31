@@ -3,6 +3,7 @@ import { Field, reduxForm } from 'redux-form';
 import { Button, Form } from "semantic-ui-react";
 
 import renderField from "./render-field";
+import { validate } from "../contact-validation";
 
 class ContactForm extends Component {
 
@@ -45,6 +46,8 @@ render(){
    }
 }
 
-ContactForm = reduxForm({ form : 'contact' })(ContactForm);
+ContactForm = reduxForm({
+              form : 'contact',
+              validate  })(ContactForm);
 
 export default ContactForm;

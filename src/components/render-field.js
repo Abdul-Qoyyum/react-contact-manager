@@ -13,7 +13,8 @@ const renderField = ({
         <div>
             <input {...input} placeholder={label} type={type} />
             {touched &&
-            ((error && <span>{error.message}</span>))}
+            ((error && <span>{error.message}</span>) ||
+              (warning && <span>{warning}</span>))}
         </div>
     </Form.Field>
 )
