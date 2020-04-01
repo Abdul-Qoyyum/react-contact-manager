@@ -8,9 +8,10 @@ class App extends Component{
 render(){
   return(
           <Switch>
-          <Route path="/contact/new" component={ContactFormPage} />
-          <Route path="/contacts/edit/:id" component={ContactFormPage} />
-          <Route path="/" component={ContactListPage} />
+          <Route path={"/contact/new"} component={ContactFormPage} />
+          <Route path={"/contacts/edit/:id"} component={ContactFormPage} />
+          <Route path={"/contacts/delete/:id"} component={ContactListPage}/>
+          <Route path={"/"} component={ContactListPage} />
           </Switch>
    );
  }

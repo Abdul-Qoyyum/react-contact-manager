@@ -15,10 +15,10 @@ export const ContactCard = (props) => {
             </Card.Content>
             <Card.Content extra>
                 <div className={'ui two buttons'}>
-                    <Link to={`contacts/edit/${props.contact._id}`} className={"ui basic button green"}>
+                    <Link to={`/contacts/edit/${props.contact._id}`} className={"ui basic button green"}>
                         Edit Contact
                     </Link>
-                    <Link className={"ui basic button red"}>
+                    <Link to={`/contacts/delete/${props.contact._id}`} className={"ui basic button red"}>
                         Delete Contact
                     </Link>
                  </div>

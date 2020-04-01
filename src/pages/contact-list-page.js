@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Container, Card } from "semantic-ui-react";
 
-import { fetchContacts } from "../actions";
+import { fetchContacts, deleteContact } from "../actions";
 import { ContactCard } from "../components";
 import { NavLink } from "react-router-dom";
 
@@ -37,4 +37,4 @@ function mapStateToProps(state){
     }
 }
 
-export default connect(mapStateToProps, { fetchContacts })(ContactListPage);
+export default connect(mapStateToProps, { fetchContacts, deleteContact })(ContactListPage);

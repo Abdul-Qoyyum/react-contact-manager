@@ -4,7 +4,8 @@ import {
     SAVE_CONTACT,
     NEW_CONTACT,
     FETCH_CONTACT,
-    UPDATE_CONTACT
+    UPDATE_CONTACT,
+    DELETE_CONTACT
 } from '../types';
 
 const url = "/contacts";
@@ -50,5 +51,14 @@ export function saveContact(contact) {
                 type: SAVE_CONTACT,
                 payload: client.post(url, contact)
             })
+    }
+}
+
+export function deleteContact(id){
+    return dispatch => {
+        return dispatch({
+           type : DELETE_CONTACT,
+           payload : client.delete(`${url}/${id}`)
+        });
     }
 }
