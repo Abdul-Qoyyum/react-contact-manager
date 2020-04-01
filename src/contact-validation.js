@@ -11,7 +11,7 @@ export const validate = values => {
         }
     }else if (!/\d{3}-\d{3}-\d{4}/.test(values.phone)){
         errors.phone = {
-        message :  "Phone number must be in international format"
+        message :  "Phone number must be in international format (i.e. 555-555-5555)"
         }
     }
     if (!values.email) {

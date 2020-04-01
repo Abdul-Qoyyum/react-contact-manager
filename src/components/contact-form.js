@@ -7,7 +7,14 @@ import { validate } from "../contact-validation";
 
 class ContactForm extends Component {
 
-render(){
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        //test if there is a previous contact
+        if (this.props.contact._id !== prevProps.contact._id){
+             this.props.initialize(this.props.contact);
+        }
+    }
+
+    render(){
     const { handleSubmit, pristine, reset, submitting, contact, loading } = this.props;
 
         return(
