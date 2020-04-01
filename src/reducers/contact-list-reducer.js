@@ -4,7 +4,12 @@ import  {
   SAVE_CONTACT_PENDING,
   SAVE_CONTACT_FULFILLED,
   SAVE_CONTACT_REJECTED,
-  } from '../types';
+    FETCH_CONTACT_PENDING,
+    FETCH_CONTACT_FULFILLED,
+    UPDATE_CONTACT_PENDING,
+    UPDATE_CONTACT_FULFILLED,
+    UPDATE_CONTACT_REJECTED
+} from '../types';
 
 const defaultState = {
     contacts : [],
@@ -21,20 +26,42 @@ export const contactListReducer = (state = defaultState, action={}) => {
         case NEW_CONTACT : {
             return { ...state, contact : { name : {}} }
         }
+        case FETCH_CONTACT_PENDING : {
+            return { ...state, loading : true }
+        }
+        case FETCH_CONTACT_FULFILLED : {
+           return { ...state, contact : action.payload.data, loading : false }
+        }
         case SAVE_CONTACT_PENDING : {
             return { ...state, loading : true }
         }
         case SAVE_CONTACT_FULFILLED : {
-            return {...state, contacts : [ ...state.contacts, action.payload.data ] }
+            return {...state, contacts : [ ...state.contacts, action.payload.data ], loading : false }
         }
         case SAVE_CONTACT_REJECTED : {
             const data =  action.payload.response.data;
 
-            const {"name.first" : first, "name.last" : last, email, phone } = data.errors;
+            const {"name.first" : first, email, phone } = data.errors;
 
-            const errors = { global : data.message, name : { first, last}, email, phone }
+            const errors = { global : data.message, name : { first }, email, phone }
 
-            return {...state, errors }
+            return {...state, errors, loading: false }
+        }
+        case UPDATE_CONTACT_PENDING : {
+            return { ...state, loading: true }
+        }
+        case UPDATE_CONTACT_FULFILLED : {
+            const data  = action.payload.data;
+            return { ...state, contacts :  state.contacts.map(contact =>  contact._id === data._id ? data : contact ), loading : false}
+        }
+        case UPDATE_CONTACT_REJECTED : {
+            const data =  action.payload.response.data;
+
+            const { email, phone, "name.first" : first } = data.errors;
+
+            const errors = { global : data.message, first, email, phone }
+
+            return { ...state, errors, loading: false }
         }
         default :
             return state;

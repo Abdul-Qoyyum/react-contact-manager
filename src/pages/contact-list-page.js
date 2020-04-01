@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Container, Card } from "semantic-ui-react";
 
 import { fetchContacts } from "../actions";
-import ContactCard from "../components/contact-card";
+import { ContactCard } from "../components";
 import { NavLink } from "react-router-dom";
 
 class ContactListPage extends Component {

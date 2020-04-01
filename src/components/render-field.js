@@ -2,7 +2,7 @@ import React from "react";
 import classnames from 'classnames';
 import { Form } from 'semantic-ui-react';
 
-const renderField = ({
+export const renderField = ({
                          input,
                          label,
                          type,
@@ -19,4 +19,4 @@ const renderField = ({
     </Form.Field>
 )
 
-export default renderField;
+

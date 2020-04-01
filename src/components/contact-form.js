@@ -2,18 +2,19 @@ import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { Button, Form } from "semantic-ui-react";
 
-import renderField from "./render-field";
+import { renderField } from "./render-field";
 import { validate } from "../contact-validation";
 
 class ContactForm extends Component {
 
 render(){
-    const { handleSubmit, pristine, reset, submitting } = this.props;
+    const { handleSubmit, pristine, reset, submitting, contact, loading } = this.props;
 
         return(
             <div className="ui two column centered grid">
                 <div className="column">
-                    <Form onSubmit={handleSubmit} >
+                    <h2 style={{marginTop: "1em"}}>{contact._id ? "Edit Contact" : "Add New Contact"}</h2>
+                    <Form onSubmit={handleSubmit}  loading={loading}>
                         <Form.Group widths='equal'>
                           <Field
                              name="name.first"

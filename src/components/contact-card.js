@@ -1,7 +1,8 @@
 import React from 'react';
-import { Button, Card } from "semantic-ui-react";
+import { Card } from "semantic-ui-react";
+import { Link } from 'react-router-dom';
 
-const ContactCard = (props) => {
+export const ContactCard = (props) => {
     const {first, last} = props.contact.name;
     return(
         <Card>
@@ -13,17 +14,17 @@ const ContactCard = (props) => {
                 </Card.Description>
             </Card.Content>
             <Card.Content extra>
-                <div className='ui two buttons'>
-                    <Button basic color='green'>
+                <div className={'ui two buttons'}>
+                    <Link to={`contacts/edit/${props.contact._id}`} className={"ui basic button green"}>
                         Edit Contact
-                    </Button>
-                    <Button basic color='red'>
+                    </Link>
+                    <Link className={"ui basic button red"}>
                         Delete Contact
-                    </Button>
+                    </Link>
                  </div>
             </Card.Content>
         </Card>
          );
 }
 
-export default ContactCard;
+

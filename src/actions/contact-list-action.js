@@ -1,5 +1,10 @@
 import { client } from './client';
-import { FETCH_CONTACTS, SAVE_CONTACT, NEW_CONTACT
+import {
+    FETCH_CONTACTS,
+    SAVE_CONTACT,
+    NEW_CONTACT,
+    FETCH_CONTACT,
+    UPDATE_CONTACT
 } from '../types';
 
 const url = "/contacts";
@@ -13,6 +18,23 @@ export function fetchContacts() {
     }
 }
 
+export function fetchContact(_id){
+    return dispatch => {
+        return dispatch({
+           type : FETCH_CONTACT,
+           payload : client.get(`${url}/${_id}`)
+        });
+    }
+}
+
+export function updateContact(contact){
+    return dispatch => {
+        return dispatch({
+           type : UPDATE_CONTACT,
+           payload : client.put(`${url}/${contact._id}`, contact)
+        });
+    }
+}
 
 export function newContact(){
     return dispatch => {
